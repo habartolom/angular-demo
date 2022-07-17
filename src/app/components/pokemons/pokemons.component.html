@@ -1,0 +1,9 @@
+<div class="content" role="main">
+    <div class="d-flex flex-wrap justify-content-around">
+        <app-card *ngFor="let pokemon of pokemonList" [data]="pokemon" class="m-2"></app-card>
+    </div>
+    <div *ngIf="previous || next">
+        <button [disabled]="!previous" style="width: 150px;" class="btn btn-dark m-3 mx-5" (click)="goBack()">Atrás</button>
+        <button [disabled]="!next" style="width: 150px;" class="btn btn-dark m-3 mx-5" (click)="goForward()">Siguiente</button>
+    </div>
+</div>

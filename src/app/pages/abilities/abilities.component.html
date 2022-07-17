@@ -1,0 +1,18 @@
+<div class="content">
+    <h1> Select an ability</h1>
+    <div class="mt-2">
+        <input type="search" class="form-control" placeholder="Search..." aria-label="Search" [(ngModel)]="filteredAbility">
+    </div>
+
+    <div class="d-flex flex-wrap justify-content-center mt-5">
+        <button *ngFor="let ability of abilitiesList | filterByAbility:filteredAbility" class="btn m-1" [ngClass]="{
+          'btn-primary': abilitiesList.indexOf(ability) % 5 == 0,
+          'btn-secondary': abilitiesList.indexOf(ability) % 5 == 1,
+          'btn-success': abilitiesList.indexOf(ability) % 5 == 2,
+          'btn-danger': abilitiesList.indexOf(ability) % 5 == 3,
+          'btn-warning': abilitiesList.indexOf(ability) % 5 == 4
+        }" [routerLink]="['/abilities/', ability.name]">
+          {{ability.name}}
+        </button>
+    </div>
+</div>
